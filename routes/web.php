@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SessionLoginController;
+use App\Http\Controllers\LocalizationController;
 use App\Helpers\Validate;
 
 /*
@@ -56,4 +57,7 @@ Route::get('/session-test', function () {
     $session = Session::get('username');
     return $session;
 });
-Route::get('/session-dashboard', [SessionLoginController::class,'index'])->middleware('session');
+Route::get('/session-dashboard', [SessionLoginController::class, 'index'])->middleware('session');
+
+// Localization
+Route::get('/localization/{locale}', [LocalizationController::class, 'index']);
