@@ -10,6 +10,7 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SessionLoginController;
 use App\Http\Controllers\LocalizationController;
 use App\Helpers\Validate;
+use App\Http\Controllers\ServiceRepoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ use App\Helpers\Validate;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['check'])->group(function () {
+// Route::middleware(['check'])->group(function () {
     Route::get('/',[BookController::class, 'index']);
     Route::get('/insert',[BookController::class, 'create']);
     Route::post('/store',[BookController::class, 'store']);
@@ -30,7 +31,7 @@ Route::middleware(['check'])->group(function () {
     Route::get('/delete/{id}',[BookController::class, 'delete']);
     Route::get('/session',[SessionController::class, 'index']);
     Route::get('/session/get',[SessionController::class, 'show']);    
-});
+// });
 
 Route::get('/login', [LoginController::class,'index']);
 Route::post('/login', [LoginController::class,'auth']);
@@ -61,3 +62,6 @@ Route::get('/session-dashboard', [SessionLoginController::class, 'index'])->midd
 
 // Localization
 Route::get('/localization/{locale}', [LocalizationController::class, 'index']);
+
+// Repository & Service
+Route::get('/repository', [ServiceRepoController::class, 'index']);

@@ -21,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>session login</title>
+  <title>Books</title>
   <!-- Favicon -->
   <link rel="icon" href="../session-login-assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -35,7 +35,7 @@
 
 <body>
 
-    @include('session-login.navbar')
+    @include('books.navbar')
     <div class="main-content" id="panel">
         @yield('main-content')
     </div>

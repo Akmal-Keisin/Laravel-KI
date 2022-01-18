@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Repository\BookRepository;
+use App\Service\BookService;
 use Illuminate\Http\Request;
 use App\Helpers\Validate;
 use Illuminate\Support\Facades\DB;
@@ -10,12 +12,13 @@ use Illuminate\Support\Facades\DB;
 class BookController extends Controller
 {
     public function index() {
-        $books = DB::table('books')->get();
-        return view('home', ['books' => $books]);
+        $books = BookRepository::find(request('find'));
+        return view('books.home', [
+            'books' => $books
+        ]);
     }
-
     public function create() {
-        return view('insert');
+        return view('books.insert');
     }
     public function store(Request $request)
     {
@@ -27,12 +30,7 @@ class BookController extends Controller
     	]);
  
         
-        $book = new Book();
-        $book->book_name = $request->book_name;
-        $book->author = $request->author;
-        $book->description = $request->description;
-        $book->price = $request->price;
-        $book->save();
+        BookService::createBook($request);
         // DB::table('books')->insert([
     	// 	'book_name' => $request->book_name,
     	// 	'author' => $request->author,
@@ -47,7 +45,7 @@ class BookController extends Controller
         // $book = DB::table('books')->where('id', $id)->get();
         // return view('/edit', ['book' => $book]);
         $book = DB::table('books')->where('id', $id)->first();
-		return view('/edit', ['book' => $book]);
+		return view('books.edit', ['book' => $book]);
     }
 
     public function update($id, Request $request) {
