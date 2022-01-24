@@ -10,7 +10,9 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SessionLoginController;
 use App\Http\Controllers\LocalizationController;
 use App\Helpers\Validate;
+use App\Http\Controllers\ListController;
 use App\Http\Controllers\ServiceRepoController;
+use App\Http\Controllers\TodoListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,5 +65,5 @@ Route::get('/session-dashboard', [SessionLoginController::class, 'index'])->midd
 // Localization
 Route::get('/localization/{locale}', [LocalizationController::class, 'index']);
 
-// Repository & Service
-Route::get('/repository', [ServiceRepoController::class, 'index']);
+// To Do List
+Route::get('/todo', [ListController::class, 'index']);
