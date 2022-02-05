@@ -11,8 +11,6 @@ use App\Http\Controllers\SessionLoginController;
 use App\Http\Controllers\LocalizationController;
 use App\Helpers\Validate;
 use App\Http\Controllers\ListController;
-use App\Http\Controllers\ServiceRepoController;
-use App\Http\Controllers\TodoListController;
 
 /*
 |--------------------------------------------------------------------------
