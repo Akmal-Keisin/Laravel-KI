@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\DB;
 class BookController extends Controller
 {
     public function index() {
-        $books = BookRepository::find(request('find'));
+        $books = Book::all();
+        if (request('find')) {
+            $books = BookRepository::find(request('find'));
+        }
         return view('books.home', [
             'books' => $books
         ]);

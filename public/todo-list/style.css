@@ -1,0 +1,20 @@
+.card {
+  height: 80vh;
+  overflow-y: hidden;
+}
+.list-box {
+  height: 55vh;
+  overflow-y: auto;
+}
+.list-group li {
+  list-style-type: none;
+}
+.list-group li span {
+  cursor: pointer;
+}
+.list-group li:hover {
+  background-color: rgb(214, 214, 214);
+}
+.line-through {
+  text-decoration: line-through;
+}

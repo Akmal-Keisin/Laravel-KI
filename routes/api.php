@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/api/test', function() {
-    return response()->json();
-});
+
+Route::get('/todo-list', [TodoController::class, 'index']);
+Route::get('/todo-list/{id}', [TodoController::class, 'show']);
+Route::post('/todo-list', [TodoController::class, 'store']);
+Route::put('/todo-list/{id}', [TodoController::class, 'update']);
+Route::delete('/todo-list/{id}', [TodoController::class, 'destroy']);
